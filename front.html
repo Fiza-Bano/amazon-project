@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Amazon Product Page</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f3f3f3;
+}
+
+.topbar{
+    background:#fff;
+    padding:15px 30px;
+    border-bottom:1px solid #ddd;
+}
+
+.container{
+    display:flex;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    background:#fff;
+    padding:20px;
+    height:100vh;
+    border-right:1px solid #ddd;
+}
+
+.sidebar h3{
+    margin:20px 0 10px;
+    font-size:16px;
+}
+
+.sidebar label{
+    display:block;
+    margin:6px 0;
+}
+
+/* Products */
+.products{
+    flex:1;
+    padding:20px;
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap:20px;
+}
+
+/* Product Card */
+.card{
+    background:#fff;
+    padding:15px;
+    border-radius:8px;
+    box-shadow:0 0 5px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+}
+
+.card h4{
+    font-size:14px;
+    margin:10px 0;
+}
+
+.rating{
+    color:#f90;
+    font-size:14px;
+}
+
+.price{
+    font-size:18px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+button{
+    background:#ffd814;
+    border:none;
+    padding:8px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#f7ca00;
+}
+
+</Style>
+</head>
+<body>
+
+<header class="topbar">
+    <h2>Amazon Prime</h2>
+    <p>Get unlimited free delivery, streaming video and music, and more.</p>
+</header>
+
+<div class="container">
+
+    <!-- LEFT FILTER SIDEBAR -->
+    <aside class="sidebar">
+        <h3>Delivery Day</h3>
+        <label><input type="checkbox"> Get it by Tomorrow</label>
+        <label><input type="checkbox"> Get it in 2 Days</label>
+
+        <h3>Eligible for Free Shipping</h3>
+        <label><input type="checkbox"> Free Shipping</label>
+
+        <h3>Price</h3>
+        <input type="range" min="100" max="2500">
+
+        <h3>Customer Review</h3>
+        ⭐⭐⭐⭐ & Up
+
+        <h3>Pay on Delivery</h3>
+        <label><input type="checkbox"> Eligible</label>
+    </aside>
+
+
+    <!-- PRODUCT AREA -->
+    <main class="products">
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/71jVh0smxOL._SX522_.jpg">
+            <h4>Centrum Women Multivitamin</h4>
+            <div class="rating">⭐⭐⭐⭐⭐ (5.2k)</div>
+            <p class="price">₹506</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/61C1n9J2VIL._SX522_.jpg">
+            <h4>Supradyn Daily Multivitamin</h4>
+            <div class="rating">⭐⭐⭐⭐ (3.4k)</div>
+            <p class="price">₹449</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/61rj6k7D6lL._SX522_.jpg">
+            <h4>Siens Multivitamin Men</h4>
+            <div class="rating">⭐⭐⭐⭐ (455)</div>
+            <p class="price">₹337</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/61sKxC4j1JL._SX522_.jpg">
+            <h4>Ace Blend Multivitamin Women</h4>
+            <div class="rating">⭐⭐⭐⭐⭐ (44)</div>
+            <p class="price">₹923</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/71jVh0smxOL._SX522_.jpg">
+            <h4>Centrum Women Tablets</h4>
+            <div class="rating">⭐⭐⭐⭐ (5.2k)</div>
+            <p class="price">₹506</p>
+            <button>Add to Cart</button>
+        </div>
+
+    </main>
+</div>
+
+</body>
+</html>

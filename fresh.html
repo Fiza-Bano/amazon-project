@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fresh</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+	*{
+	margin:0;
+	font-family:Arial;
+	border:border-box;
+}
+
+.navbar{
+	height:60px;
+	background-color:#0f1111;
+	color:white;
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
+	
+}
+.nav-logo{
+	height:50px;
+	width:100px;
+}
+.logo{
+	background-image:url(pic.jpeg);
+	background-size:cover;
+	height:50px;
+	width:100px;
+}
+.border{
+	border:2px solid transparent;
+}
+.border:hover{
+	border:1.5px solid white;
+}
+/*box1*/
+.add-first{
+	color:#cccccc;
+	font-size:0.85rem;
+	margin-left:15px;
+}
+.add-second{
+	font-size:1rem;
+	margin-left:3px;
+}
+.add-icon{
+	display:flex;
+	align-items:center;
+}
+/*box3*/
+.search{
+	display:flex;
+	justify-content:space-evenly;
+	background-color:#febd68;
+	width:620px;
+	height:40px;
+	border-radius:4px;
+}
+.search-select{
+	background-color:#f3f3f3;
+	width:50px;
+	text-align:center;
+	border-top-left-radius:4px;
+	border-bottom-left-radius:4px;
+	border:none;
+}
+.search-input{
+	width:100%;
+	font-size:1rem;
+	border:none;
+	
+}
+.search-icon{
+	width:45px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-top-right-radius:4px;
+	border-bottom-right-radius:4px;
+	color:#0f1111;
+}
+.search:hover{
+		border:2px soild orange;
+}
+/*box4*/
+.menu ul li{
+		list-style-type:none;
+		display:inline block;
+}
+.menu ul li a{
+		color:white;
+		text-decoration:none;
+}
+.span{
+	text-decoration:none;
+	font-size:0.85rem;
+}
+.retun  li{
+		list-style-type:none;
+		display:inline block;
+	
+}
+.retun  li a{
+		color:white;
+		text-decoration:none;
+	
+}
+.sing-second{
+	font-size:1rem;
+	font-weight:700;
+}
+/*box*/
+
+.cart i{
+	font-size:30px;
+}
+.cart{
+	font-size:0.85rem;
+	font-weight:700;
+}
+/*panel*/
+.a1 ul li{
+		list-style-type:none;
+		display:inline-block;
+		padding:10px 6px;
+	
+}
+.a1 ul li a{
+		color:white;
+		text-decoration:none;
+	
+}
+.panel{
+	text-decoration:none;
+	height:40px;
+	background-color:#222f3d;
+	display:flex;
+	color:white;
+	align-items:center;
+	justify-content:space-evenly;
+	
+}
+.panel-ops p{
+	display:inline;
+}
+.panel-ops{
+	width:70%;
+	font-size:0.85rem;
+	margin-left:20px;
+}
+.panel-all{
+		cursor:pointer;
+}
+.great{
+	font-size:1rem;
+	font-weight:700;
+	cursor:pointer;
+}
+.great:hover{
+	border:2px solid white;
+}
+/*fresh*/
+.fresh{
+	border-top:5px solid green;
+}
+.newnav{
+	text-decoration:none;
+	height:40px;
+	background-color:width;
+	display:flex;
+	color:black;
+	align-items:center;
+	justify-content:space-evenly;
+	cursor:pointer;
+	gap:20px;
+	
+}
+.newnav p{
+	display:inline;
+}
+.newnav{
+	width:100%;
+	font-size:0.85rem;
+	margin-left:20px;
+}
+/* Main Wrapper */
+.shop-by-store-container {
+    width:100%;
+    max-width: 2000px;
+    background-color: #ffffff;
+    padding: 80px;
+    box-sizing: border-box;
+}
+
+/* Header Box */
+.store-header {
+    background-color: #e2edd5; /* Light greenish banner background */
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.store-header h2 {
+    margin: 0;
+    color: #2b4c1f; /* Dark green text color */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* 4-Column Grid System */
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background-color: #e9f2dc; /* Inner light green container background */
+    padding: 30px 15px;
+    border-radius: 8px;
+}
+
+/* Individual Grid Item Card */
+.store-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Circular Background for Products */
+.circle-bg {
+    width: 300px;
+    height: 300px;
+    background-color: #b0cc99; /* Darker green circle background */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Temporary Image Placeholder Styling */
+.product-placeholder {
+   
+    color: #fff;
+    font-weight: bold;
+    /* Agar image daalni ho toh yahan background-image use karein */
+}
+
+/* standard text below categories */
+.item-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a2a2a;
+    line-height: 1.2;
+}
+
+/* Special Ribbon Label for 'Local Delights' */
+.ribbon-label {
+    background-color: #b32a32; /* Red ribbon background */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px 15px;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 85%;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .store-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on mobile */
+        gap: 25px 15px;
+    }
+    
+    .circle-bg {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .item-text {
+        font-size: 16px;
+    }
+    
+    .ribbon-label {
+        font-size: 15px;
+    }
+}
+/* Container Main Styling */
+        .deal-zone-container {
+            max-width: 1500px;
+            margin: 0 auto;
+            background-color: #fbece0; /* Off-white / light peach background from screenshot */
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .deal-header {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .deal-header span {
+            margin-left: 8px;
+            color: #888;
+            font-size: 18px;
+        }
+
+        /* Supersaver Section Box */
+        .section-box {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .see-all {
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Cards Slider Wrapper */
+        .slider-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            width: 2000px;
+            padding-bottom: 10px;
+        }
+
+        /* Hide Scrollbar for Chrome, Safari and Opera */
+        .cards-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Individual Card Styling */
+        .product-card {
+            background: #fff;
+            border: 1px solid #eef0f2;
+            border-radius: 8px;
+            min-width: 220px;
+            width: 155px;
+            padding: 10px;
+            position: relative;
+            display: flex;
+            column-count: 1;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Discount Tag */
+        .discount-tag {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            background-color: #b03a2e; /* Dark red background */
+            color: white;
+            padding: 4px 6px;
+            font-size: 10px;
+            font-weight: bold;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .discount-tag span {
+            display: block;
+            font-size: 8px;
+            font-weight: normal;
+        }
+
+        /* Product Image Wrapper */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .image-container img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* Add Button Overlay */
+        .add-btn {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            border-radius: 15px;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Product Info */
+        .product-details {
+            margin-top: 5px;
+        }
+
+        .product-name {
+            font-size: 11px;
+            color: #444;
+            line-height: 1.3;
+            height: 32px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            margin-bottom: 4px;
+        }
+
+        .product-size {
+            font-size: 10px;
+            color: #777;
+            margin-bottom: 4px;
+        }
+
+        /* Ratings */
+        .rating-container {
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+            color: #e67e22; /* Orange stars */
+            margin-bottom: 6px;
+        }
+
+        .rating-value {
+            font-weight: bold;
+            color: #555;
+            margin-right: 2px;
+        }
+
+        .rating-count {
+            color: #888;
+            margin-left: 3px;
+        }
+
+        /* Price section */
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .current-price {
+            font-size: 13px;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .original-price {
+            font-size: 10px;
+            color: #888;
+            text-decoration: line-through;
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .arrow-left {
+            left: -12px;
+        }
+
+        .arrow-right {
+            right: -12px;
+        }
+
+        .nav-arrow i {
+            color: #555;
+            font-size: 12px;
+        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Wrapper */
+.amazon-footer {
+    width: 100%;
+    background-color: #232f3e;
+    color: #eaeded;
+}
+
+/* 1. Back to Top Button */
+.back-to-top {
+    display: block;
+    width: 100%;
+    background-color: #37475a;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.back-to-top:hover {
+    background-color: #485769;
+}
+
+/* 2. Main Footer Links Section */
+.footer-main-links {
+    padding: 40px 0;
+    border-bottom: 1px solid #3a4553;
+}
+
+.footer-row-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 14px;
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 3. Brand & Settings Row */
+.footer-brand-settings {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.settings-selectors {
+    display: flex;
+    gap: 15px;
+}
+
+.selector-box {
+    border: 1px solid #848688;
+    border-radius: 3px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+}
+
+.selector-box:hover {
+    border-color: #ffffff;
+}
+
+.arrow {
+    font-size: 10px;
+}
+
+/* 4. Deep Sub-Footer (Dark Blue Section) */
+.footer-deep {
+    background-color: #131a22;
+    padding: 40px 20px 30px 20px;
+}
+
+.services-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 40px;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.service-item a {
+    color: #999;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 1.4;
+    display: block;
+}
+
+.service-item a strong {
+    color: #ddd;
+}
+
+.service-item a:hover {
+    text-decoration: underline;
+}
+
+/* Legal Footer Links & Copyright */
+.footer-legal {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 10px;
+}
+
+.footer-legal ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-legal ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-legal ul li a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 11px;
+    color: #999;
+}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="navbar">
+		<div class="nav-logo border">
+		<div class="logo"></div>
+		</div>
+		<div class="nav-address border">
+		<p class="add-first">Deliver to</p>
+		<div class="add-icon">
+		<i class="fa-solid fa-location-dot"></i>
+		<p class="add-second">India</p>
+		</div>
+		</div>
+		<div class="search">
+		<select class="search-select" name="select">
+		<option>All</option>
+		<section>All</section>
+			<option>All Categories</option>
+			<option>Alexa Skills</option>
+			<option>Amazon Devices</option>
+			<option>Amazon Fashion</option>
+			<option>Amazon Fresh</option>
+		</select>
+		<input placeholder="Search Amazon"class="search-input"/>
+		<div class="search-icon">
+		<i class="fa-solid fa-magnifying-glass"></i>
+		</div>
+		</div>
+		<div class="menu border">
+		<ul>
+		<li><span><a href="singn.html">Hello,sing in</a></span></li>
+		<li class="sing-second"><a href="#">Account& Lists</a></li>
+		</div>
+		<div class="retun border">
+		<li><span><a href="#">Returns</a></span></li>
+		<li class="sing-second"><a href="#">& Orders</a></li>
+		</ul>
+		</div>
+		<div class="cart border">
+		<i class="fa-solid fa-cart-shopping"></i>
+			Cart
+		</div>
+		</div>
+		<div class="panel">
+		<div class="panel-all border">
+		<i class="fa-solid fa-bars"></i>
+			All
+		</div>
+		<div class="panel-ops">
+		<div class="a1">
+		<ul>
+		<li class="border"><a href="fresh.html">Fresh</a></li>
+		<li class="border"><a href="mxplayer.html">Mx Player</a></li>
+		<li class="border"><a href="">Sell</a></li>
+		<li class="border"><a href="">Bestsrller</a></li>
+		<li class="border"><a href="">Today's Deals</a></li>
+		<li class="border"><a href="">Mobiles</a></li>
+		<li class="border"><a href="">Electronic</a></li>
+		<li class="border"><a href="">New Releases</a></li>
+		<li class="border"><a href="">Prime</a></li>
+		<li class="border"><a href="">Customer Service</a></li>
+		<li class="border"><a href="">Fashion</a></li>
+		<li class="border"><a href="">Home& Kicthen</a></li>
+		</ul>
+		</div>
+		</div>
+		<div class="great bordre">
+		Great Indian Festival Live Now
+		</div>
+		</div>
+	</header>
+		</div>
+		<div class="fresh">
+		</div>
+		<div class="newnav">
+		<img src="https://m.media-amazon.com/images/I/31Ip4aURUpL.png" height="40px" width="100px">
+		<p>Past Purches</p>
+		<p>Deals</p>
+		<p>Atta,ricw& grains</p>
+		<p>Dal& pulses</p>
+		<p>Oil& ghee</p>
+		<p>Tea,coffee& drink mixes</p>
+		<p>Snacks& biscuits</p>
+		<p>Bath& body</p>
+		<p>Makeup& cosmetics</p>
+		<p>Baby care</p>
+		<p>Pet car</p>
+		</div>
+		<div class="m1">
+		<div class="s1">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Mar23/Product/SF_stripe_PC_new_v1.jpg" 
+		height="70px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Hero_Slider/SVD/6feb/1_6.jpg" align="center"width="1400px">
+		<h1><center>Groceries& Food</center></h1>
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Atta_Rice__grains.jpg" height="370px" width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Dals__Pulses.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Oil__Ghee.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Masala_sugar__spices.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Cereals__dry_fruits.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Tea_coffee__drink_mixes.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V2/Juices--cold-drinks.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Sauces__spreads.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Noodles__pasta.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Snacks__biscuits.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Chocolates__sweets.jpg" height="370px"width="270px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Supersavers.jpg" height="350px"width="250px">
+			<h1><center>Beauty& persnoal care</center></h1>
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Bath__body.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Hair_care.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Skin__face.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Deos__perfumes.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Feminine_hygiene.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Mens_grooming.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Oral_care.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Baby_care.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Make_up__Cosmetics.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Pharma__wellness.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Sep/V1/Diet__nutrition.jpg" height="400px"width="300px">
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Jupiter25/Teaser/Finalbeauty/Pet_Care.jpg" height="400px"width="300px">
+		<!-- Main Container -->
+    <div class="shop-by-store-container">
+        
+        <!-- Header Section -->
+        <div class="store-header">
+            <h2>Shop by store</h2>
+        </div>
+
+        <!-- Grid Items Container -->
+        <div class="store-grid">
+            
+            <!-- Item 1: Local Delights -->
+            <div class="store-item">
+                <div class="circle-bg">
+                    <!-- Aap yahan apni product image lagayein -->
+                    <div class="product-placeholder">
+					<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/June/Primeday/V3/Local_delight
+					.jpg" height="250px" width="250px">
+					</div>
+                </div>
+                <div class="ribbon-label">Local delights</div>
+            </div>
+
+            <!-- Item 2: Millets -->
+            <div class="store-item">
+                <div class="circle-bg">
+                    <div class="product-placeholder">
+					<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/kmargso/New/Mayart25/Millets_mayartjpg.jpg"
+					height="250px" width="250px">
+					</div>
+                </div>
+                <div class="item-text">Millets</div>
+            </div>
+
+            <!-- Item 3: Healthy Eating -->
+            <div class="store-item">
+                <div class="circle-bg">
+                    <div class="product-placeholder">
+					<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Aug/V1/Healthy-eating.jpg"
+					height="250px" width="250px">
+					</div>
+                </div>
+                <div class="item-text">Healthy<br>eating</div>
+            </div>
+
+            <!-- Item 4: Premium & Organic -->
+            <div class="store-item">
+                <div class="circle-bg">
+                    <div class="product-placeholder">
+					<img src="https://m.media-amazon.com/images/G/31/img24/Fresh/Aug/V1/Premium_and_Organic_Grocery.jpg
+					" height="250px" width="250px">
+					</div>
+                </div>
+                <div class="item-text">Premium &<br>organic</div>
+            </div>
+
+        </div>
+    </div>
+	<div class="deal-zone-container">
+    
+    <div class="deal-header">
+       <img src="https://m.media-amazon.com/images/G/31/img18/Fresh/May25/1500x150_stripe.gif" width="1450px">
+    </div>
+
+    <div class="section-box">
+        <div class="section-header">
+            <div class="section-title">Supersaver</div>
+            <a href="#" class="see-all">See all</a>
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="nav-arrow arrow-left">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+
+            <div class="cards-container">
+                
+                <div class="product-card">
+                    <div class="discount-tag">10%<br><span>OFF</span></div>
+                    <div class="image-container">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/61xGGY7W3WL.AC_SL240_.jpg" alt="Ghee">
+                        <button class="add-btn">Add</button>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Gowardhan Pure Cow Ghee Jar 1 Litre</div>
+                        <div class="product-size">1 l</div>
+                        <div class="rating-container">
+                            <span style="color:#888;">No reviews yet</span> 
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">₹745.00</span>
+                            <span class="original-price">₹830.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">11%<br><span>OFF</span></div>
+                    <div class="image-container">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/81hjfHDwDXL.AC_SL240_.jpg" alt="Comfort">
+                        <button class="add-btn">Add</button>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Comfort Morning Fresh Fabric Conditioner 2 L Refill...</div>
+                        <div class="product-size">2 L<br><span style="color:#aaa; font-size:9px;">2 sizes</span></div>
+                        <div class="rating-container">
+                            <span class="rating-value">4.5</span>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-count">73,759</span>
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">₹400.00</span>
+                            <span class="original-price">₹450.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">6%<br><span>OFF</span></div>
+                    <div class="image-container">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/51SaCdR9XdL.AC_SL240_.jpg" alt="Surf Excel">
+                        <button class="add-btn">Add</button>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Surf Excel Matic Powder Front Load 6kg +500ml liqu...</div>
+                        <div class="product-size">6000 g<br><span style="color:#aaa; font-size:9px;">3 sizes</span></div>
+                        <div class="rating-container">
+                            <span class="rating-value">4.4</span>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-count">27,729</span>
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">₹1,385.00</span>
+                            <span class="original-price">₹1,475.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">20%<br><span>OFF</span></div>
+                    <div class="image-container">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/61HdGMhlIHL.AC_SL240_.jpg" alt="Bru Coffee">
+                        <button class="add-btn">Add</button>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Bru Instant | Aromatic Coffee From South Indian Plantati...</div>
+                        <div class="product-size">200 g</div>
+                        <div class="rating-container">
+                            <span class="rating-value">4.4</span>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-count">9,720</span>
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">₹405.00</span>
+                            <span class="original-price">₹505.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">14%<br><span>OFF</span></div>
+                    <div class="image-container">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/51LBsd6JYJL.AC_SL240_.jpg" alt="Nescafe">
+                        <button class="add-btn">Add</button>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">Nescafe Gold Blend Rich and Smooth Instant Coffee Po...</div>
+                        <div class="product-size">200 g</div>
+                        <div class="rating-container">
+                            <span class="rating-value">4.5</span>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-count">1,070</span>
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">₹1,165.00</span>
+                            <span class="original-price">₹1,350.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">52%<br><span>OFF</span></div>
+                    <div class="image-container">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/51La7HRCp0L.AC_SL240_.jpg" alt="Tresemme">
+                        <button class="add-btn">Add</button>
+                    </div>
+                    <div class="product-details">
+                        <div class="product-name">TRESemmé Keratin Smooth+ Shampoo 1000ml | 72H Fri...</div>
+                        <div class="product-size">1 l<br><span style="color:#aaa; font-size:9px;">2 sizes</span></div>
+                        <div class="rating-container">
+                            <span class="rating-value">4.3</span>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-count">60,762</span>
+                        </div>
+                        <div class="price-container">
+                            <span class="current-price">₹656.00</span>
+                            <span class="original-price">₹1,370.00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="nav-arrow arrow-right">
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+</div>
+		<img src="https://m.media-amazon.com/images/G/31/img18/Fresh/Oct20/UNREC/1500x150_strip.jpg">
+		</div>
+		</div>
+		</div>
+		<!-- Amazon Footer Container -->
+    <footer class="amazon-footer">
+        
+        <!-- 1. Back to Top Button -->
+        <a href="#" class="back-to-top">Back to top</a>
+
+        <!-- 2. Main Footer Links Container -->
+        <div class="footer-main-links">
+            <div class="footer-row-container">
+                
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <h3>Get to Know Us</h3>
+                    <ul>
+                        <li><a href="#">About Amazon</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                        <li><a href="#">Amazon Science</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h3>Connect with Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h3>Make Money with Us</h3>
+                    <ul>
+                        <li><a href="#">Sell on Amazon</a></li>
+                        <li><a href="#">Sell under Amazon Accelerator</a></li>
+                        <li><a href="#">Protect and Build Your Brand</a></li>
+                        <li><a href="#">Amazon Global Selling</a></li>
+                        <li><a href="#">Supply to Amazon</a></li>
+                        <li><a href="#">Become an Affiliate</a></li>
+                        <li><a href="#">Fulfilment by Amazon</a></li>
+                        <li><a href="#">Advertise Your Products</a></li>
+                        <li><a href="#">Amazon Pay on Merchants</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h3>Let Us Help You</h3>
+                    <ul>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href="#">Returns Centre</a></li>
+                        <li><a href="#">Recalls and Product Safety Alerts</a></li>
+                        <li><a href="#">100% Purchase Protection</a></li>
+                        <li><a href="#">Amazon App Download</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. Regional / Settings Row -->
+        <div class="footer-brand-settings">
+            <div class="footer-logo">amazon</div>
+            <div class="settings-selectors">
+                <div class="selector-box">
+                    <span>🌐 English</span>
+                    <span class="arrow">↕️</span>
+                </div>
+                <div class="selector-box">
+                    <span>🇮🇳 India</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Deep Footer (Services & Legal) -->
+        <div class="footer-deep">
+            <div class="services-grid">
+                <div class="service-item">
+                    <a href="#"><strong>AbeBooks</strong><br>Books, art<br>& collectibles</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Amazon Web Services</strong><br>Scalable Cloud<br>Computing Services</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Audible</strong><br>Download<br>Audio Books</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>IMDb</strong><br>Movies, TV<br>& Celebrities</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Shopbop</strong><br>Designer<br>Fashion Brands</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Amazon Business</strong><br>Everything For<br>Your Business</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Amazon Music</strong><br>Stream millions<br>of songs</a>
+                </div>
+            </div>
+
+            <!-- Legal Links & Copyright -->
+            <div class="footer-legal">
+                <ul>
+                    <li><a href="#">Conditions of Use & Sale</a></li>
+                    <li><a href="#">Privacy Notice</a></li>
+                    <li><a href="#">Interest-Based Ads</a></li>
+                </ul>
+                <p class="copyright">© 1996-2026, Amazon.com, Inc. or its affiliates</p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>

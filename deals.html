@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>js</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+  <body ng-app>
+  <p>Name of Color</p>
+  <div ng-init="mycol='yellow'">
+  <input style="background-color:{{mycol}}"ng-model="mycol">
+  </div>
+  <!------------------------------>
+  <div ng-init="productQty=2;productPrice=12000">
+    <p>Purchase Samsung A30, Qty=2,Price=12000</p>
+    <p>Total Amount Paid <span ng-bind="productQty×productPrice"></span></p>
+  </div>
+  <!------------------------------>
+  <p>Concatenate String</p>
+  <div ng-init="FirstName='Fiza';midName='Pathan';LastName='FP'">
+   
+    <p>The full name is:{{FirstName+" " +midName+ " " +LastName}}</p>
+  </div>
+  <!----------------------------->
+  <h1>ExampleofObject</h1>
+  <div ng-init="person={firstName:'Fiza,MidName:'Tafseer',lastName:'pathan'}">
+    
+    <p>The MidName is{{person.MidName}}</p>
+    <p>The firstName is{{person.firstName}}</p>
+    </div>
+    <!----------------------->
+    <h1>Example of Array</h1>
+     <div ng-init="Number=[1,15,19,2,40]">
+       <p>The twoNumber value is{{Number[1]}}</p>
+       <p>The fourNumber value is {{Number[3]}}</p>
+     </div>
+	 
+</body>
+</html>

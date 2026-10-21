@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Today's deals</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+*{
+	margin:0;
+	font-family:Arial;
+	border:border-box;
+}
+
+.navbar{
+	height:60px;
+	background-color:#0f1111;
+	color:white;
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
+	
+}
+.nav-logo{
+	height:50px;
+	width:100px;
+}
+.logo{
+	background-image:url(pic.jpeg);
+	background-size:cover;
+	height:50px;
+	width:100px;
+}
+.border{
+	border:2px solid transparent;
+}
+.border:hover{
+	border:1.5px solid white;
+}
+/*box1*/
+.add-first{
+	color:#cccccc;
+	font-size:0.85rem;
+	margin-left:15px;
+}
+.add-second{
+	font-size:1rem;
+	margin-left:3px;
+}
+.add-icon{
+	display:flex;
+	align-items:center;
+}
+/*box3*/
+.search{
+	display:flex;
+	justify-content:space-evenly;
+	background-color:#febd68;
+	width:620px;
+	height:40px;
+	border-radius:4px;
+}
+.search-select{
+	background-color:#f3f3f3;
+	width:50px;
+	text-align:center;
+	border-top-left-radius:4px;
+	border-bottom-left-radius:4px;
+	border:none;
+}
+.search-input{
+	width:100%;
+	font-size:1rem;
+	border:none;
+	
+}
+.search-icon{
+	width:45px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-top-right-radius:4px;
+	border-bottom-right-radius:4px;
+	color:#0f1111;
+}
+.search:hover{
+		border:2px soild orange;
+}
+/*box4*/
+.menu ul li{
+		list-style-type:none;
+		display:inline block;
+}
+.menu ul li a{
+		color:white;
+		text-decoration:none;
+}
+.span{
+	text-decoration:none;
+	font-size:0.85rem;
+}
+.retun  li{
+		list-style-type:none;
+		display:inline block;
+	
+}
+.retun  li a{
+		color:white;
+		text-decoration:none;
+	
+}
+.sing-second{
+	font-size:1rem;
+	font-weight:700;
+}
+/*box*/
+
+.cart i{
+	font-size:30px;
+}
+.cart{
+	font-size:0.85rem;
+	font-weight:700;
+}
+/*panel*/
+.a1 ul li{
+		list-style-type:none;
+		display:inline-block;
+		padding:10px 6px;
+	
+}
+.a1 ul li a{
+		color:white;
+		text-decoration:none;
+	
+}
+.panel{
+	text-decoration:none;
+	height:40px;
+	background-color:#222f3d;
+	display:flex;
+	color:white;
+	align-items:center;
+	justify-content:space-evenly;
+	
+}
+.panel-ops p{
+	display:inline;
+}
+.panel-ops{
+	width:70%;
+	font-size:0.85rem;
+	margin-left:20px;
+}
+.panel-all{
+		cursor:pointer;
+}
+.great{
+	font-size:1rem;
+	font-weight:700;
+	cursor:pointer;
+}
+.great:hover{
+	border:2px solid white;
+}
+/* Navigation Tabs */
+.nav-tabs {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.nav-tabs span {
+    font-size: 14px;
+    cursor: pointer;
+    color: #555;
+    white-space: nowrap;
+}
+
+.nav-tabs span.active {
+    color: #e47911;
+    font-weight: bold;
+    border-bottom: 2px solid #e47911;
+    padding-bottom: 8px;
+}
+
+/* Main Layout */
+.main-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: white;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    font-size: 15px;
+    margin: 15px 0 8px 0;
+}
+
+.sidebar label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* Product Card */
+.product-card {
+    background: white;
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Image Wrapper and Yellow Plus Button */
+.image-wrapper {
+    position: relative;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.add-btn {
+    position: absolute;
+    bottom: -10px;
+    right: 5px;
+    background: #ffd814;
+    border: 1px solid #fcd200;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-btn:hover {
+    background: #f7ca00;
+}
+
+/* Badges & Text */
+.discount-badge {
+    background-color: #cc0c39;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 2px;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+.deal-type {
+    color: #cc0c39;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.mrp {
+    font-size: 12px;
+    color: #565959;
+    text-decoration: line-through;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.title {
+    font-size: 13px;
+    color: #0f1111;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsive Grid for Smaller Screens */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+		<div class="navbar">
+		<div class="nav-logo border">
+		<div class="logo"></div>
+		</div>
+		<div class="nav-address border">
+		<p class="add-first">Deliver to</p>
+		<div class="add-icon">
+		<i class="fa-solid fa-location-dot"></i>
+		<p class="add-second">India</p>
+		</div>
+		</div>
+		<div class="search">
+		<select class="search-select" name="select">
+		<option>All</option>
+		<section>All</section>
+			<option>All Categories</option>
+			<option>Alexa Skills</option>
+			<option>Amazon Devices</option>
+			<option>Amazon Fashion</option>
+			<option>Amazon Fresh</option>
+		</select>
+		<input placeholder="Search Amazon"class="search-input"/>
+		<div class="search-icon">
+		<i class="fa-solid fa-magnifying-glass"></i>
+		</div>
+		</div>
+		<div class="menu border">
+		<ul>
+		<li><span><a href="singn.html">Hello,sing in</a></span></li>
+		<li class="sing-second"><a href="#">Account& Lists</a></li>
+		</div>
+		<div class="retun border">
+		<li><span><a href="#">Returns</a></span></li>
+		<li class="sing-second"><a href="#">& Orders</a></li>
+		</ul>
+		</div>
+		<div class="cart border">
+		<i class="fa-solid fa-cart-shopping"></i>
+			Cart
+		</div>
+		</div>
+		<div class="panel">
+		<div class="panel-all border">
+		<i class="fa-solid fa-bars"></i>
+			All
+		</div>
+		<div class="panel-ops">
+		<div class="a1">
+		<ul>
+		<li class="border"><a href="fresh.html">Fresh</a></li>
+		<li class="border"><a href="mxplayer.html">Mx Player</a></li>
+		<li class="border"><a href="">Sell</a></li>
+		<li class="border"><a href="">Bestsrller</a></li>
+		<li class="border"><a href="">Today's Deals</a></li>
+		<li class="border"><a href="">Mobiles</a></li>
+		<li class="border"><a href="">Electronic</a></li>
+		<li class="border"><a href="">New Releases</a></li>
+		<li class="border"><a href="">Prime</a></li>
+		<li class="border"><a href="">Customer Service</a></li>
+		<li class="border"><a href="">Fashion</a></li>
+		<li class="border"><a href="">Home& Kicthen</a></li>
+		</ul>
+		</div>
+		</div>
+		<div class="great bordre">
+		Great Indian Festival Live Now
+		</div>
+		</div>
+	</header>	
+	<div class="nav-tabs">
+        <span class="active">Today's Deals</span>
+        <span>All Deals</span>
+        <span>Watched Deals</span>
+        <span>Subscribe & Save</span>
+        <span>Coupons</span>
+    </div>
+
+    <div class="main-container">
+        
+        <aside class="sidebar">
+            <h3>Department</h3>
+            <label><input type="radio" name="dept" checked> All</label>
+            <label><input type="radio" name="dept"> Amazon Devices</label>
+            <label><input type="radio" name="dept"> Mobiles & Accessories</label>
+            <label><input type="radio" name="dept"> Electronics</label>
+            
+            <h3>Brands</h3>
+            <label><input type="checkbox"> OnePlus</label>
+            <label><input type="checkbox"> Samsung</label>
+            <label><input type="checkbox"> vivo</label>
+            <label><input type="checkbox"> ASUS</label>
+        </aside>
+
+        <main class="products-grid">
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://th.bing.com/th?id=OPAC.aulkh6Bq1NA%2f8g474C474&w=144&h=192&o=5&dpr=1.3&pid=21.1" alt="OnePlus Nord">
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="discount-badge">28% off</div>
+                <span class="deal-type">Limited time deal</span>
+                <div class="price">₹22,998 <span class="mrp">M.R.P: ₹31,999</span></div>
+                <p class="title">OnePlus Nord CE4 Lite 5G (Super Silver, 8GB RAM, 128GB Storage)</p>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://th.bing.com/th/id/OPAC.djvKoQXIdVZh4Q474C474?w=144&h=144&o=5&dpr=1.3&pid=21.1" alt="Samsung TV">
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="discount-badge">31% off</div>
+                <span class="deal-type">Limited time deal</span>
+                <div class="price">₹44,990 <span class="mrp">M.R.P: ₹64,900</span></div>
+                <p class="title">Samsung 55 inches Crystal UHD 4K Smart TV</p>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://th.bing.com/th/id/OIP.8oCx6mJopoA68YfXerAxhgHaFC?w=284&h=193&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="ASUS Laptop">
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="discount-badge">18% off</div>
+                <span class="deal-type">Limited time deal</span>
+                <div class="price">₹68,990 <span class="mrp">M.R.P: ₹83,990</span></div>
+                <p class="title">ASUS TUF Gaming A15, AMD Ryzen 7, RTX 3050 Graphics</p>
+            </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://th.bing.com/th/id/OIP.nXKhkK_Dtj1s0iWpeS_UOgHaEK?w=292&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Water Purifier">
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="discount-badge">58% off</div>
+                <span class="deal-type">Limited time deal</span>
+                <div class="price">₹10,999 <span class="mrp">M.R.P: ₹26,500</span></div>
+                <p class="title">Aquaguard Delight Aura UV+UF Water Purifier</p>
+            </div>
+			<div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://th.bing.com/th/id/OIP.7Mg4jP9sTbUIKosACyhHrQHaE7?w=259&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="OnePlus Nord">
+                    <button class="add-btn">+</button>
+                </div>
+                <div class="discount-badge">28% off</div>
+                <span class="deal-type">Limited time deal</span>
+                <div class="price">₹49,523.00 <span class="mrp">M.R.P: ₹31,999</span></div>
+                <p class="title">OnePlus Nord CE4 Lite 5G (Super Silver, 8GB RAM, 128GB Storage)</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
