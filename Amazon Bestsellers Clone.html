@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <title>Amazon Bestsellers Clone</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+*{
+	margin:0;
+	font-family:Arial;
+	border:border-box;
+}
+
+.navbar{
+	height:60px;
+	background-color:#0f1111;
+	color:white;
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
+	
+}
+.nav-logo{
+	height:50px;
+	width:100px;
+}
+.logo{
+	background-image:url(pic.jpeg);
+	background-size:cover;
+	height:50px;
+	width:100px;
+}
+.border{
+	border:2px solid transparent;
+}
+.border:hover{
+	border:1.5px solid white;
+}
+/*box1*/
+.add-first{
+	color:#cccccc;
+	font-size:0.85rem;
+	margin-left:15px;
+}
+.add-second{
+	font-size:1rem;
+	margin-left:3px;
+}
+.add-icon{
+	display:flex;
+	align-items:center;
+}
+/*box3*/
+.search{
+	display:flex;
+	justify-content:space-evenly;
+	background-color:#febd68;
+	width:620px;
+	height:40px;
+	border-radius:4px;
+}
+.search-select{
+	background-color:#f3f3f3;
+	width:50px;
+	text-align:center;
+	border-top-left-radius:4px;
+	border-bottom-left-radius:4px;
+	border:none;
+}
+.search-input{
+	width:100%;
+	font-size:1rem;
+	border:none;
+	
+}
+.search-icon{
+	width:45px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	border-top-right-radius:4px;
+	border-bottom-right-radius:4px;
+	color:#0f1111;
+}
+.search:hover{
+		border:2px soild orange;
+}
+/*box4*/
+.menu ul li{
+		list-style-type:none;
+		display:inline block;
+}
+.menu ul li a{
+		color:white;
+		text-decoration:none;
+}
+.span{
+	text-decoration:none;
+	font-size:0.85rem;
+}
+.retun  li{
+		list-style-type:none;
+		display:inline block;
+	
+}
+.retun  li a{
+		color:white;
+		text-decoration:none;
+	
+}
+.sing-second{
+	font-size:1rem;
+	font-weight:700;
+}
+/*box*/
+
+.cart i{
+	font-size:30px;
+}
+.cart{
+	font-size:0.85rem;
+	font-weight:700;
+}
+/*panel*/
+.a1 ul li{
+		list-style-type:none;
+		display:inline-block;
+		padding:10px 6px;
+	
+}
+.a1 ul li a{
+		color:white;
+		text-decoration:none;
+	
+}
+.panel{
+	text-decoration:none;
+	height:40px;
+	background-color:#222f3d;
+	display:flex;
+	color:white;
+	align-items:center;
+	justify-content:space-evenly;
+	
+}
+.panel-ops p{
+	display:inline;
+}
+.panel-ops{
+	width:70%;
+	font-size:0.85rem;
+	margin-left:20px;
+}
+.panel-all{
+		cursor:pointer;
+}
+.great{
+	font-size:1rem;
+	font-weight:700;
+	cursor:pointer;
+}
+.great:hover{
+	border:2px solid white;
+}
+/* Basic Reset and Font Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    color: #111;
+}
+
+/* Main Layout Grid split into Sidebar and Main Content */
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   1. Sidebar Styles (Left Side Links)
+   ========================================================================== */
+.sidebar {
+    width: 240px;
+    padding-right: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 6px;
+}
+
+.sidebar ul li a {
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #e47911; /* Amazon signature orange on hover */
+    text-decoration: underline;
+}
+
+.sidebar ul li a.active {
+    font-weight: bold;
+    color: #111;
+}
+
+/* ==========================================================================
+   2. Main Content Styles (Right Side Products)
+   ========================================================================== */
+.main-content {
+    flex-grow: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.page-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.page-header p {
+    font-size: 13px;
+    color: #565959;
+    margin-top: 5px;
+}
+
+/* Section Title and 'See More' alignment */
+.section-title {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.section-title .see-more {
+    font-size: 12px;
+    color: #007185;
+    text-decoration: none;
+}
+
+.section-title .see-more:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+/* Product Grid (4 items per row) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Individual Product Card */
+.product-card {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Amazon Style Orange Rank Badge (#1, #2, etc.) */
+.rank-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #e47911;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+/* Image Container styling */
+.product-image {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Product Details Structure */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.product-name {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #007185;
+    margin-bottom: 5px;
+    
+    /* Truncates text with '...' after 3 lines if the title is too long */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-name:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+.rating {
+    font-size: 12px;
+    color: #de7921;
+    margin-bottom: 5px;
+}
+
+.review-count {
+    color: #007185;
+    margin-left: 5px;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: bold;
+    color: #b12704; /* Dark red for pricing */
+}
+/* Base Wrapper Container */
+.main-container {
+    max-width: 1350px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Headers & Alignment */
+.bestseller-section {
+    margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.title-area {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.title-area h2 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #111;
+}
+
+.title-area .see-more {
+    font-size: 13px;
+    color: #007185;
+    text-decoration: none;
+}
+
+.title-area .see-more:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+.page-count {
+    font-size: 13px;
+    color: #565959;
+}
+
+/* Divider Line */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: #e7e7e7;
+    margin: 30px 0;
+}
+
+/* Carousel Layout System */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Grid for 4 Items */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+    padding: 0 45px; /* Spaces out for left/right arrows */
+}
+
+/* Arrow Navigation Styling */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 45px;
+    background-color: #ffffff;
+    border: 1px solid #d5d9d9;
+    border-radius: 4px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(213,217,217,.5);
+    z-index: 5;
+    color: #111;
+}
+
+.nav-arrow:hover {
+    background-color: #f7fafa;
+    border-color: #a8ecef;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+/* Product Card Design */
+.product-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid transparent;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Amazon Style Rank Badge */
+.rank-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #e47911;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 3px 9px;
+    border-radius: 2px;
+    z-index: 2;
+}
+
+/* Image Center Block */
+.product-image {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Product Data Formatting */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-name {
+    font-size: 13px;
+    line-height: 1.4em;
+    height: 4.2em; /* Restricts height to exactly 3 lines */
+    color: #007185;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-name:hover {
+    color: #c7511f;
+    text-decoration: underline;
+}
+
+.rating {
+    font-size: 12px;
+    color: #de7921;
+    margin-bottom: 6px;
+}
+
+.review-count {
+    color: #007185;
+    margin-left: 4px;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: 600;
+    color: #b12704;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer Wrapper */
+.amazon-footer {
+    width: 100%;
+    background-color: #232f3e;
+    color: #eaeded;
+}
+
+/* 1. Back to Top Button */
+.back-to-top {
+    display: block;
+    width: 100%;
+    background-color: #37475a;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.back-to-top:hover {
+    background-color: #485769;
+}
+
+/* 2. Main Footer Links Section */
+.footer-main-links {
+    padding: 40px 0;
+    border-bottom: 1px solid #3a4553;
+}
+
+.footer-row-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 14px;
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 3. Brand & Settings Row */
+.footer-brand-settings {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.settings-selectors {
+    display: flex;
+    gap: 15px;
+}
+
+.selector-box {
+    border: 1px solid #848688;
+    border-radius: 3px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #ccc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+}
+
+.selector-box:hover {
+    border-color: #ffffff;
+}
+
+.arrow {
+    font-size: 10px;
+}
+
+/* 4. Deep Sub-Footer (Dark Blue Section) */
+.footer-deep {
+    background-color: #131a22;
+    padding: 40px 20px 30px 20px;
+}
+
+.services-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 40px;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.service-item a {
+    color: #999;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 1.4;
+    display: block;
+}
+
+.service-item a strong {
+    color: #ddd;
+}
+
+.service-item a:hover {
+    text-decoration: underline;
+}
+
+/* Legal Footer Links & Copyright */
+.footer-legal {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 10px;
+}
+
+.footer-legal ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-legal ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-legal ul li a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 11px;
+    color: #999;
+}
+</style>    
+</head>
+<body>
+<header>
+		<div class="navbar">
+		<div class="nav-logo border">
+		<div class="logo"></div>
+		</div>
+		<div class="nav-address border">
+		<p class="add-first">Deliver to</p>
+		<div class="add-icon">
+		<i class="fa-solid fa-location-dot"></i>
+		<p class="add-second">India</p>
+		</div>
+		</div>
+		<div class="search">
+		<select class="search-select" name="select">
+		<option>All</option>
+		<section>All</section>
+			<option>All Categories</option>
+			<option>Alexa Skills</option>
+			<option>Amazon Devices</option>
+			<option>Amazon Fashion</option>
+			<option>Amazon Fresh</option>
+		</select>
+		<input placeholder="Search Amazon"class="search-input"/>
+		<div class="search-icon">
+		<i class="fa-solid fa-magnifying-glass"></i>
+		</div>
+		</div>
+		<div class="menu border">
+		<ul>
+		<li><span><a href="singn.html">Hello,sing in</a></span></li>
+		<li class="sing-second"><a href="#">Account& Lists</a></li>
+		</div>
+		<div class="retun border">
+		<li><span><a href="#">Returns</a></span></li>
+		<li class="sing-second"><a href="#">& Orders</a></li>
+		</ul>
+		</div>
+		<div class="cart border">
+		<i class="fa-solid fa-cart-shopping"></i>
+			Cart
+		</div>
+		</div>
+		<div class="panel">
+		<div class="panel-all border">
+		<i class="fa-solid fa-bars"></i>
+			All
+		</div>
+		<div class="panel-ops">
+		<div class="a1">
+		<ul>
+		<li class="border"><a href="fresh.html">Fresh</a></li>
+		<li class="border"><a href="mxplayer.html">Mx Player</a></li>
+		<li class="border"><a href="">Sell</a></li>
+		<li class="border"><a href="">Bestsrller</a></li>
+		<li class="border"><a href="">Today's Deals</a></li>
+		<li class="border"><a href="">Mobiles</a></li>
+		<li class="border"><a href="">Electronic</a></li>
+		<li class="border"><a href="">New Releases</a></li>
+		<li class="border"><a href="">Prime</a></li>
+		<li class="border"><a href="">Customer Service</a></li>
+		<li class="border"><a href="">Fashion</a></li>
+		<li class="border"><a href="">Home& Kicthen</a></li>
+		</ul>
+		</div>
+		</div>
+		<div class="great bordre">
+		Great Indian Festival Live Now
+		</div>
+		</div>
+	</header>
+    <div class="container">
+        
+        <aside class="sidebar">
+            <h3>Any Department</h3>
+            <ul>
+                <li><a href="#">Amazon Launchpad</a></li>
+                <li><a href="#">Amazon Renewed</a></li>
+                <li><a href="#">Apps & Games</a></li>
+                <li><a href="#">Baby Products</a></li>
+                <li><a href="#">Bags, Wallets and Luggage</a></li>
+                <li><a href="#" class="active">Beauty</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Car & Motorbike</a></li>
+                <li><a href="#">Clothing & Accessories</a></li>
+                <li><a href="#">Computers & Accessories</a></li>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Garden & Outdoors</a></li>
+                <li><a href="#">Grocery & Gourmet Foods</a></li>
+                <li><a href="#">Health & Personal Care</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Amazon Bestsellers</h1>
+                <p>Our most popular products based on sales. Updated frequently.</p>
+            </header>
+
+            <section class="bestseller-section">
+                <div class="section-title">
+                    <h2>Bestsellers in Beauty</h2>
+                    <a href="#" class="see-more">See More</a>
+                </div>
+
+                <div class="products-grid">
+                    
+                    <div class="product-card">
+                        <span class="rank-badge">#1</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/718F+0RgtfL._AC_UL450_SR450,320_.jpg" alt="Ghar Soaps">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Ghar Soaps Sandalwood & Saffron Magic Soap For Bath (300 gms)</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">14,748</span></div>
+                            <p class="price">₹399.00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="rank-badge">#2</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/71x-JgwRslL._AC_UL450_SR450,320_.jpg" alt="Face Wash">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Ghar Soaps Magic De-Tan Face Wash With Saffron - 100ml</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">5,120</span></div>
+                            <p class="price">₹299.00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="rank-badge">#3</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/51wqZYWGr+L._AC_UL450_SR450,320_.jpg" alt="Simple Face Wash">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Simple Kind To Skin Refreshing Facial Wash 150 ml</p>
+                            <div class="rating">⭐⭐⭐⭐★ <span class="review-count">28,531</span></div>
+                            <p class="price">₹275.00</p>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <span class="rank-badge">#4</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/61Ti2uv6V3L._AC_UL450_SR450,320_.jpg" alt="Cetaphil">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Cetaphil Gentle Skin Cleanser Hydrating Face Wash 118ml</p>
+                            <div class="rating">⭐⭐⭐⭐★ <span class="review-count">44,768</span></div>
+                            <p class="price">₹386.00</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+<div class="main-container">
+
+        <!-- SECTION 1: GARDEN & OUTDOORS -->
+        <section class="bestseller-section">
+            <div class="section-header">
+                <div class="title-area">
+                    <h2>Bestsellers in Garden & Outdoors</h2>
+                    <a href="#" class="see-more">See More</a>
+                </div>
+                <span class="page-count">Page 1 of 5</span>
+            </div>
+
+            <!-- Carousel Container with Arrows -->
+            <div class="carousel-wrapper">
+                <button class="nav-arrow left-arrow">&#8249;</button>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#1</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/61U4HUr13cL._AC_UL450_SR450,320_.jpg" alt="Lizard Repellent">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Shadow Securitronics Gecko Aerosol Based Odour Free Herbal Lizard Repellent Spray | Eco-Friendly...</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">3,533</span></div>
+                            <p class="price">₹389.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#2</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/71cRik9djML._AC_UL450_SR450,320_.jpg" alt="Mosquito Net">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">LifeKrafts Polyester Magnetic Mosquito Net for All Door Types & Sizes, Auto-Closing Insect Screen...</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">20,010</span></div>
+                            <p class="price">₹899.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#3</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/81NcPU059SL._AC_UL450_SR450,320_.jpg" alt="Mosquito Bat">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Mortein Advanced Anti-Mosquito Racquet | Mosquito Bat | Electric Fly Swatter | Mosquito Killer...</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">4,422</span></div>
+                            <p class="price">₹452.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#4</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/615ogT1U-KL._AC_UL450_SR450,320_.jpg" alt="Vermicompost">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Ugaoo Organic Vermicompost for Plants 5 Kg | Pure Earthworm Compost Manure Rich in NPK...</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">7,797</span></div>
+                            <p class="price">₹329.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-arrow right-arrow">&#8250;</button>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- SECTION 2: HOME & KITCHEN -->
+        <section class="bestseller-section">
+            <div class="section-header">
+                <div class="title-area">
+                    <h2>Bestsellers in Home & Kitchen</h2>
+                    <a href="#" class="see-more">See More</a>
+                </div>
+                <span class="page-count">Page 1 of 5</span>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="nav-arrow left-arrow">&#8249;</button>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#1</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/61fn1xtHO4L._AC_UL450_SR450,320_.jpg" alt="Presto Tissue">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Presto! 2 Ply Kitchen Tissue Paper Roll - Pack of 4 (60 Pulls Per Roll)</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">12,345</span></div>
+                            <p class="price">₹249.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#2</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/61tZVx+LpKL._AC_UL450_SR450,320_.jpg" alt="Artificial Flowers">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Gifts Zone Bunch of Beautiful Artificial Red Roses Bunch for Home Decoration</p>
+                            <div class="rating">⭐⭐⭐⭐★ <span class="review-count">1,890</span></div>
+                            <p class="price">₹199.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#3</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/71Jd57CzPBL._AC_UL450_SR450,320_.jpg" alt="Water Bottle">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Go24 Insulated Stainless Steel Water Bottle 750ml | Matte Finish</p>
+                            <div class="rating">⭐⭐⭐⭐☆ <span class="review-count">3,112</span></div>
+                            <p class="price">₹599.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <span class="rank-badge">#4</span>
+                        <div class="product-image">
+                            <img src="https://images-eu.ssl-images-amazon.com/images/I/71erHCKJ3WL._AC_UL450_SR450,320_.jpg" alt="Garbage Bags">
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Presto! Oxo-Biodegradable Garbage Bags | Medium Size (Pack of 3, 90 Bags)</p>
+                            <div class="rating">⭐⭐⭐⭐★ <span class="review-count">25,410</span></div>
+                            <p class="price">₹340.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-arrow right-arrow">&#8250;</button>
+            </div>
+        </section>
+
+    </div>
+	<!-- Amazon Footer Container -->
+    <footer class="amazon-footer">
+        
+        <!-- 1. Back to Top Button -->
+        <a href="#" class="back-to-top">Back to top</a>
+
+        <!-- 2. Main Footer Links Container -->
+        <div class="footer-main-links">
+            <div class="footer-row-container">
+                
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <h3>Get to Know Us</h3>
+                    <ul>
+                        <li><a href="#">About Amazon</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                        <li><a href="#">Amazon Science</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h3>Connect with Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h3>Make Money with Us</h3>
+                    <ul>
+                        <li><a href="#">Sell on Amazon</a></li>
+                        <li><a href="#">Sell under Amazon Accelerator</a></li>
+                        <li><a href="#">Protect and Build Your Brand</a></li>
+                        <li><a href="#">Amazon Global Selling</a></li>
+                        <li><a href="#">Supply to Amazon</a></li>
+                        <li><a href="#">Become an Affiliate</a></li>
+                        <li><a href="#">Fulfilment by Amazon</a></li>
+                        <li><a href="#">Advertise Your Products</a></li>
+                        <li><a href="#">Amazon Pay on Merchants</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h3>Let Us Help You</h3>
+                    <ul>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href="#">Returns Centre</a></li>
+                        <li><a href="#">Recalls and Product Safety Alerts</a></li>
+                        <li><a href="#">100% Purchase Protection</a></li>
+                        <li><a href="#">Amazon App Download</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. Regional / Settings Row -->
+        <div class="footer-brand-settings">
+            <div class="footer-logo">amazon</div>
+            <div class="settings-selectors">
+                <div class="selector-box">
+                    <span>🌐 English</span>
+                    <span class="arrow">↕️</span>
+                </div>
+                <div class="selector-box">
+                    <span>🇮🇳 India</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Deep Footer (Services & Legal) -->
+        <div class="footer-deep">
+            <div class="services-grid">
+                <div class="service-item">
+                    <a href="#"><strong>AbeBooks</strong><br>Books, art<br>& collectibles</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Amazon Web Services</strong><br>Scalable Cloud<br>Computing Services</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Audible</strong><br>Download<br>Audio Books</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>IMDb</strong><br>Movies, TV<br>& Celebrities</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Shopbop</strong><br>Designer<br>Fashion Brands</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Amazon Business</strong><br>Everything For<br>Your Business</a>
+                </div>
+                <div class="service-item">
+                    <a href="#"><strong>Amazon Music</strong><br>Stream millions<br>of songs</a>
+                </div>
+            </div>
+
+            <!-- Legal Links & Copyright -->
+            <div class="footer-legal">
+                <ul>
+                    <li><a href="#">Conditions of Use & Sale</a></li>
+                    <li><a href="#">Privacy Notice</a></li>
+                    <li><a href="#">Interest-Based Ads</a></li>
+                </ul>
+                <p class="copyright">© 1996-2026, Amazon.com, Inc. or its affiliates</p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>
